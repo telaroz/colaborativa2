@@ -10,8 +10,8 @@ ui <- shinydashboard::dashboardPage(
   
   shinydashboard::dashboardSidebar(collapsed = TRUE,
                                    shinydashboard::sidebarMenu(
-                                     shinydashboard::menuItem("Marcador de Tiros", tabName = "marcador", icon = icon("people-carry")),
-                                     shinydashboard::menuItem("Resultados", tabName = "resultados", icon = icon("child"))
+                                     shinydashboard::menuItem("Marcador de Tiros", tabName = "marcador", icon = icon("futbol")),
+                                     shinydashboard::menuItem("Resultados", tabName = "resultados", icon = icon("hand-paper"))
                    )),
   
   shinydashboard::dashboardBody(
@@ -74,7 +74,7 @@ ui <- shinydashboard::dashboardPage(
                          inputId = "art", 
                          label = "Tipo de Tiro",
                          size = 'lg',
-                         choices = c("General", "7m", "Penetración", "Extremo","Contragolpe", "Tiro Libre Directo", "Otros")
+                         choices = c("General", "7m", "Penetracion", "Extremo", "Contragolpe", "Tiro Libre Directo", "Otros")
                        ),
                        materialSwitch(
                          inputId = "material_marco",
@@ -175,7 +175,7 @@ server <- function(input, output, session) {
   # Add a download button
   output$download <- shiny::downloadHandler(
     filename = function() {
-      paste0(input$dataset, ".csv")
+      paste0('sesion', Sys.Date(),".csv")
     },
     content = function(file) {
       data.table::fwrite(values$DT, file)
