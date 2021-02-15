@@ -1,0 +1,35 @@
+tipo_de_tiro,larga_distancia,marco_vacio,posicion,posicion_tiro,xg
+General,TRUE,TRUE,left,empty goal,0.768472906403941
+General,FALSE,TRUE,left,empty goal,0.768472906403941
+7m,FALSE,TRUE,left,empty goal,0.768472906403941
+Penetración,FALSE,TRUE,left,empty goal,0.768472906403941
+Extremo,FALSE,TRUE,left,empty goal,0.768472906403941
+Contragolpe,FALSE,TRUE,left,empty goal,0.768472906403941
+General,TRUE,FALSE,left,left 9m,0.423076923076923
+General,FALSE,FALSE,left,left 6m,0.706806282722513
+7m,FALSE,FALSE,left,Penalty,0.768809849521204
+Penetración,FALSE,FALSE,left,breakthrough,0.754170324846356
+Extremo,FALSE,FALSE,left,left wing,0.617378048780488
+Contragolpe,FALSE,FALSE,left,fast break,0.7682570593963
+General,TRUE,TRUE,right,empty goal,0.768472906403941
+General,FALSE,TRUE,right,empty goal,0.768472906403941
+7m,FALSE,TRUE,right,empty goal,0.768472906403941
+Penetración,FALSE,TRUE,right,empty goal,0.768472906403941
+Extremo,FALSE,TRUE,right,empty goal,0.768472906403941
+Contragolpe,FALSE,TRUE,right,empty goal,0.768472906403941
+General,TRUE,FALSE,right,right 9m,0.4048
+General,FALSE,FALSE,right,right 6m,0.689567430025445
+7m,FALSE,FALSE,right,Penalty,0.768809849521204
+Penetración,FALSE,FALSE,right,breakthrough,0.754170324846356
+Extremo,FALSE,FALSE,right,right wing,0.619565217391304
+Contragolpe,FALSE,FALSE,right,fast break,0.7682570593963
+General,TRUE,TRUE,centre,empty goal,0.768472906403941
+General,FALSE,TRUE,centre,empty goal,0.768472906403941
+7m,FALSE,TRUE,centre,empty goal,0.768472906403941
+Penetración,FALSE,TRUE,centre,empty goal,0.768472906403941
+Contragolpe,FALSE,TRUE,centre,empty goal,0.768472906403941
+General,TRUE,FALSE,centre,centre 9m,0.394849785407725
+General,FALSE,FALSE,centre,centre 6m,0.714932126696833
+7m,FALSE,FALSE,centre,Penalty,0.768809849521204
+Penetración,FALSE,FALSE,centre,breakthrough,0.754170324846356
+Contragolpe,FALSE,FALSE,centre,fast break,0.7682570593963
