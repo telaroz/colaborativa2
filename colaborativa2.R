@@ -4,24 +4,21 @@ library(ggplot2)
 library(shinyWidgets)
 library(data.table)
 library(lubridate)
-library(formattable)
-library(png)
-tabla_para_xg <- data.table::fread('tabla_para_xg.csv')
 
-ui <- dashboardPage(
-  dashboardHeader(title = 'Anotador de tiros'),
+ui <- shinydashboard::dashboardPage(
+  shinydashboard::dashboardHeader(title = 'Anotador de tiros'),
   
-  dashboardSidebar(collapsed = TRUE,
-                   sidebarMenu(
-                     menuItem("Marcador de Tiros", tabName = "marcador", icon = icon("people-carry")),
-                     menuItem("Resultados", tabName = "resultados", icon = icon("child"))
+  shinydashboard::dashboardSidebar(collapsed = TRUE,
+                                   shinydashboard::sidebarMenu(
+                                     shinydashboard::menuItem("Marcador de Tiros", tabName = "marcador", icon = icon("people-carry")),
+                                     shinydashboard::menuItem("Resultados", tabName = "resultados", icon = icon("child"))
                    )),
   
-  dashboardBody(
-    tabItems(
+  shinydashboard::dashboardBody(
+    shinydashboard::tabItems(
       # First tab content
-      tabItem(tabName = "marcador",
-              fluidRow(  #hr(),
+      shinydashboard::tabItem(tabName = "marcador",
+                              shiny::fluidRow( 
                 tableOutput('marcador'),
                 tags$head(tags$style("#marcador{color: blue;
                                  font-size: 30px;
@@ -31,10 +28,10 @@ ui <- dashboardPage(
                 
               ),
               
-              fluidRow(column(width = 1, radioGroupButtons(
+              shiny::fluidRow(column(width = 1, radioGroupButtons(
                 inputId = "tirador",
                 label = "Tirador",
-                choices = c('Motor', 'Barça'),
+                choices = c('Motor', 'Barcelona'),
                 #size = 'sm',
                 direction = 'vertical',
                 individual = FALSE,
@@ -57,7 +54,7 @@ ui <- dashboardPage(
               )),
               column(width = 2, radioGroupButtons(
                 inputId = "portero_visita",
-                label = "Portero Barça",
+                label = "Portero Barcelona",
                 choices = c("1 - Perez de Vargas, G", "36 - Møller, Kevin"),
                 # size = 'lg',
                 direction = 'vertical',
@@ -67,7 +64,7 @@ ui <- dashboardPage(
                   yes = icon("ok", 
                              lib = "glyphicon"))
               ))),
-              fluidRow(
+              shiny::fluidRow(
                 column(width = 6,
                        plotOutput("plot1", click = "plot_click"),
                        actionButton("rem_point", "Quite el último dato")),
@@ -95,8 +92,8 @@ ui <- dashboardPage(
                      h4("Tiros realizados"),
                      tableOutput("table")),
               downloadButton("download", "Descargar Sesión", size = 'lg')),
-      tabItem(tabName = "resultados",
-              fluidRow(column(width = 4,
+      shinydashboard::tabItem(tabName = "resultados",
+                              shiny::fluidRow(column(width = 4,
                               tableOutput("tabla_resultados")),
               column(width = 4, tableOutput('porteros1'))))
       
@@ -111,8 +108,11 @@ ui <- dashboardPage(
 
 server <- function(input, output, session) {
   # Create a reactive data.table
-  values <- reactiveValues()
-  campo <- handbaloner::court()
+  options(encoding = "UTF-8")
+  values <- shiny::reactiveValues()
+  tabla_para_xg <- data.table::fread('data/tabla_para_xg.csv')
+  source(file = 'helper_functions.R')
+  campo <- court()
   values$DT <- data.table(x = numeric(),
                           y = numeric(),
                           gol = character(),
@@ -128,7 +128,7 @@ server <- function(input, output, session) {
                           probabilidad_parada = numeric())
   
   # Create a plot
-  output$plot1 = renderPlot({
+  output$plot1 = shiny::renderPlot({
 
     campo +
     geom_point(data = values$DT, aes(x = x, y = y), 
@@ -139,7 +139,7 @@ server <- function(input, output, session) {
   })
   
   # Add a new row, as a reaction to a click
-  observeEvent(input$plot_click, {
+  shiny::observeEvent(input$plot_click, {
     add_row <- data.table(x = input$plot_click$x,
                           y = input$plot_click$y,
                           gol = input$color,
@@ -147,7 +147,7 @@ server <- function(input, output, session) {
                           portero = data.table::fifelse(input$tirador == 'Motor', input$portero_visita, input$portero),
                           tipo_de_tiro = paste0(input$art),
                           marco_vacio = input$material_marco,
-                          pasivo = input$material_pasivo)[, distancia_a_gol := data.table::fifelse(tipo_de_tiro == '7m', 7,handbaloner::distance_to_goal(c(x , y)))
+                          pasivo = input$material_pasivo)[, distancia_a_gol := data.table::fifelse(tipo_de_tiro == '7m', 7, distance_to_goal(c(x , y)))
                           ][, larga_distancia := distancia_a_gol >= 9][, posicion := data.table::fcase((x < 0 & y < -2) | (x > 0 & y > 2), 'left',
                                                                                                        (x < 0 & y > 2) |  (x > 0 & y < -2), 'right', 
                                                                                                        default = 'centre')
@@ -157,23 +157,23 @@ server <- function(input, output, session) {
   })
   
   # Action button in case a row should be removed.
-  observeEvent(input$rem_point, {
+  shiny::observeEvent(input$rem_point, {
     rem_row <- values$DT[-nrow(values$DT), ]
     values$DT <- rem_row
   })
   
   # Render the table
-  output$table <- renderTable({
+  output$table <- shiny::renderTable({
     data.table::setDT(tail(values$DT, 5))[5:1]
   })
   
-  output$marcador <- renderTable({
-    data.table::data.table(Motor = values$DT[tirador != 'Barça', sum(gol == 'Gol')], Barça = values$DT[tirador == 'Barça',sum(gol == 'Gol')])
+  output$marcador <- shiny::renderTable({
+    data.table::data.table(Motor = values$DT[tirador != 'Barcelona', sum(gol == 'Gol')], Barcelona = values$DT[tirador == 'Barcelona',sum(gol == 'Gol')])
   })
   
   
   # Add a download button
-  output$download <- downloadHandler(
+  output$download <- shiny::downloadHandler(
     filename = function() {
       paste0(input$dataset, ".csv")
     },
@@ -183,19 +183,17 @@ server <- function(input, output, session) {
   )
   
   
-  
   # Mostrar la tabla de resultados
-  output$tabla_resultados <- renderTable({
+  output$tabla_resultados <- shiny::renderTable({
     res <- data.table::copy(values$DT)
     res[, numero_tiro := 1:.N]
     res <- res[, .(numero_tiro, equipo = tirador, probabilidad_parada, resultado = gol)]
     res[, probabilidad_parada := scales::percent(probabilidad_parada)]
     res
   })
+ 
   
-
-  
-  output$porteros1 <- renderTable({
+  output$porteros1 <- shiny::renderTable({
     
     
     porteros <- data.table::copy(values$DT)
@@ -213,4 +211,6 @@ server <- function(input, output, session) {
   
 }
 
-shinyApp(ui, server)
+shiny::shinyApp(ui, server)
+
+
