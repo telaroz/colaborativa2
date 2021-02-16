@@ -44,6 +44,25 @@ Del marcaje de los tiros, se obtiene automáticamente la tabla con la probabilid
 
 Para aprovechar el vídeo, se marcaron todos los tiros. En el tiro 53, parece que hubo un tiro anterior parado por el portero, por lo que el tiro 53 y 54 corresponden al video número 53 del vídeo. 
 
+
+Este es el resultado del marcaje para cada tiempo:
+
+A la izquierda el portero del Motor
+```{r, echo = FALSE}
+knitr::include_graphics("primer_tiempo.PNG")
+
+
+```
+
+
+A la derecha el portero del Motor
+```{r, echo = FALSE}
+knitr::include_graphics("segundo_tiempo.PNG")
+
+
+```
+
+
 Estos son los resultados de probabilidad de parada para cada tiro: 
 
 ```{r, echo = FALSE}
