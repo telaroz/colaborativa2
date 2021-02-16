@@ -1,4 +1,4 @@
-El archivo colaborativa2.R contiene todo el código de la aplicación de marcaje del partido. 
+El archivo colaborativa2.R contiene todo el código de la aplicación en shiny de marcaje del partido. 
 
 
 
