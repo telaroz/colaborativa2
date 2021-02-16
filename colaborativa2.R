@@ -148,10 +148,12 @@ server <- function(input, output, session) {
                           tipo_de_tiro = paste0(input$art),
                           marco_vacio = input$material_marco,
                           pasivo = input$material_pasivo)[, distancia_a_gol := data.table::fifelse(tipo_de_tiro == '7m', 7, distance_to_goal(c(x , y)))
-                          ][, larga_distancia := distancia_a_gol >= 9][, posicion := data.table::fcase((x < 0 & y < -2) | (x > 0 & y > 2), 'left',
+                          ][, x := data.table::fifelse(tipo_de_tiro == '7m', 13*sign(x), x)
+                          ][, y := data.table::fifelse(tipo_de_tiro == '7m', 0, y)
+                            ][, larga_distancia := distancia_a_gol >= 9][, posicion := data.table::fcase((x < 0 & y < -2) | (x > 0 & y > 2), 'left',
                                                                                                        (x < 0 & y > 2) |  (x > 0 & y < -2), 'right', 
                                                                                                        default = 'centre')
-                          ][tabla_para_xg, xg := i.xg, on = c('tipo_de_tiro', 'larga_distancia', 'marco_vacio')
+                          ][tabla_para_xg, xg := i.xg, on = c('tipo_de_tiro', 'posicion','larga_distancia', 'marco_vacio')
                           ][, probabilidad_parada := 1 - xg]
     values$DT <- rbind(values$DT, add_row)
   })
@@ -175,7 +177,7 @@ server <- function(input, output, session) {
   # Add a download button
   output$download <- shiny::downloadHandler(
     filename = function() {
-      paste0('sesion', Sys.Date(),".csv")
+      paste0('sesion_', Sys.Date(),".csv")
     },
     content = function(file) {
       data.table::fwrite(values$DT, file)

@@ -1,0 +1,84 @@
+---
+title: "Diploma Universitario en Analítica avanzada en balonmano: Tarea Colaborativa 2"
+author: "Valery Zúñiga Kondrashov"
+date: "2021-02-15"
+output: 
+  prettydoc::html_pretty:
+    theme: tactile
+always_allow_html: true
+---
+##### Nota: el código completo que genera este archivo html se puede encontrar [aquí](https://github.com/telaroz/colaborativa2/blob/master/tarea2.Rmd).
+
+
+
+##### Ejercicio: Establecer un valor de 0% a 100% de probabilidad de parada de cada uno de los 10 primeros lanzamientos que aparecen en el vídeo de lanzamientos de plataforma en el módulo 2 (hasta 0 minutos y 50 segundos en el vídeo, aparece en la esquina superior izquierda el número de lanzamiento).
+##### Cada valor puede establecerse de manera cualitativa sin necesidad de apoyarse en valores de referencia mostrados anteriormente, aunque pueden consultarse tablas de módulo 1 si se desea.
+
+
+Los valores de referencia tomados para este ejercicio, son los datos del play by play del mundial masculino de egipto 2021. 
+En este punto se hace un supuesto de que la probabilidad de parada es el inverso de la probabilidad de gol (xg), sin embargo una parte de este inverso debería considerarse en la probabilidad de fallar un tiro.
+
+```{r, echo = FALSE}
+library(magrittr)
+
+tabla <- data.table::fread('data/xg_egipto.csv')
+
+kableExtra::kable(tabla) %>%
+  kableExtra::kable_styling(full_width = FALSE)
+```
+
+Se creó una aplicación 100% con código R con el paquete [shiny](https://shiny.rstudio.com/) para marcar la posición con el tipo de tiro, para generar automáticamente la probabilidad de parada según esta información. Esta aplicación se puede acceder y usar 
+<https://telaroz.shinyapps.io/colaborativa2/>. Si bien está hecha específicamente para este ejercicio, es posible generalizarla a equipos y jugadores. El código fuente de esta aplicación se encuentra en este [repositorio](https://github.com/telaroz/colaborativa2/) (todo en R) y se puede correr la misma aplicación en una versión local. Debido a las limitaciones del servidor donde se encuentra alojada la aplicación, es recomendable ejecutar una versión local.  
+
+Se marcaron los 10 primeros tiros y estos fueron los resultados:
+
+```{r, echo = FALSE}
+knitr::include_graphics("10_tiros.PNG")
+
+knitr::include_graphics("10_tiros_resultados.PNG")
+```
+
+Del marcaje de los tiros, se obtiene automáticamente la tabla con la probabilidad de parada de cada tiro. Se obtienen además estadísticas de los porteros. Ya que estos no suelen rotar mucho en el campo, el trabajo adicional para obtener estas estadísticas es marginal.
+
+
+
+Para aprovechar el vídeo, se marcaron todos los tiros. En el tiro 53, parece que hubo un tiro anterior parado por el portero, por lo que el tiro 53 y 54 corresponden al video número 53 del vídeo. 
+
+Estos son los resultados de probabilidad de parada para cada tiro: 
+
+```{r, echo = FALSE}
+tiros <- data.table::fread('tiros_resultados.csv')
+
+DT::datatable(tiros)
+```
+
+Además, el porcentaje de paradas para cada portero:
+
+```{r, echo = FALSE}
+tabla_porteros <- data.table::fread('resultados_porteros.csv')
+
+kableExtra::kable(tabla_porteros) %>%
+  kableExtra::kable_styling(full_width = FALSE)
+```
+
+
+
+Por último, los datos crudos que surgen de la recopilación de los tiros. Las dos últimas columnas fueron agregadas manualmente. 
+
+
+```{r, echo = FALSE}
+tiros_raw <- data.table::fread('colaborativa2_raw.csv')
+
+DT::datatable(tiros_raw)
+```
+
+
+
+La coordenada $x$ va desde -20 a 20 (de un lado del campo al otro) y la coordenada $y$ de -10 a 10 (de arriba a abajo del campo). Esta marca el punto en el que el jugador salta para lanzar. Si se quisiera hacer un análisis de cada equipo, es importante tomar en cuenta el cambio de lado del cuál se ataca. 
+
+
+Estos datos de eventing que contienen las variables 'Tipo de Tiro', 'Pasivo' además de las coordenadas desde donde se toma el tiro, serían un gran inicio para crear un modelo de goles esperados (xg) más robusto que la simple división de cantidad aciertos/cantidad de tiros por posición de tiro. Es claro que un lanzamiento de extremo con un buen ángulo tendrá mayor probabilidad de éxito que otro con menor ángulo. Un modelo de XG más continuo podría ser generado empezando con simples mapas de calor por posición. Sin embargo, con suficientes datos funcionaría mejor un modelo entrenado con una regresión logística, redes neuronales o con XGboost, que es el estándar en modelos XG en fútbol. 
+
+
+
+

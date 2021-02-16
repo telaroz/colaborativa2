@@ -1,0 +1,13 @@
+name: colaborativa2
+title: colaborativa2
+username:
+account: telaroz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3640076
+bundleId: 4227219
+url: https://telaroz.shinyapps.io/colaborativa2/
+when: 1613427919.9435
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: creacion_tabla_xg.R|tarea2.html|tarea2.Rmd|data/xg_egipto.csv

@@ -1,0 +1,92 @@
+x,y,gol,tirador,portero,tipo_de_tiro,marco_vacio,pasivo,distancia_a_gol,larga_distancia,posicion,xg,probabilidad_parada,numero_tiro,mitad
+13,0,Gol,Motor,"36 - Møller, Kevin",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,1,1
+-14.97648833,-5.704095666,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.550579352,FALSE,left,71%,29%,2,1
+13.61636817,-5.039145514,Fuera,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,7.299062019,FALSE,right,69%,31%,3,1
+-15.75226351,6.431244592,Parada,Barcelona,"33 - Maroz, Ivan",Penetracion,FALSE,FALSE,6.508489727,FALSE,right,75%,25%,4,1
+-12.31668773,3.716031475,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,7.996504422,FALSE,right,69%,31%,5,1
+-14.47777572,5.10134429,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,6.592771929,FALSE,right,77%,23%,6,1
+15.55580611,6.431244592,Gol,Motor,"1 - Perez de Vargas, G",Extremo,FALSE,FALSE,6.638375749,FALSE,left,62%,38%,7,1
+-13.64658803,-5.925745716,Parada,Barcelona,"33 - Maroz, Ivan",Extremo,FALSE,FALSE,7.742936704,FALSE,left,62%,38%,8,1
+16.49781882,-6.756933405,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.3166939,FALSE,right,69%,31%,9,1
+-10.48807481,-0.66155702,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,9.511925188,TRUE,centre,39%,61%,10,1
+-13.75741306,1.222468409,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.242586945,FALSE,centre,71%,29%,11,1
+11.34445515,-5.205383052,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,9.415323692,TRUE,right,40%,60%,12,1
+-14.64401326,5.156756803,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,6.485249749,FALSE,right,77%,23%,13,1
+-13.97906311,-3.432182649,Gol,Barcelona,"33 - Maroz, Ivan",Penetracion,FALSE,FALSE,6.323370215,FALSE,left,75%,25%,14,1
+11.84316776,-5.759508178,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,9.202028149,TRUE,right,40%,60%,15,1
+-13,0,Gol,Barcelona,"33 - Maroz, Ivan",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,16,1
+11.17821761,-5.648683153,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,TRUE,9.748610999,TRUE,right,40%,60%,17,1
+-14.81025079,-4.983733002,Parada,Barcelona,"33 - Maroz, Ivan",Penetracion,FALSE,FALSE,6.250591368,FALSE,left,75%,25%,18,1
+-13,0,Parada,Barcelona,"33 - Maroz, Ivan",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,19,1
+15.22333103,-5.648683153,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.32677946,FALSE,right,69%,31%,20,1
+-9.989362199,0.834580821,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,10.0106378,TRUE,centre,39%,61%,21,1
+-17.35922637,-7.200233506,Gol,Barcelona,"33 - Maroz, Ivan",Extremo,FALSE,FALSE,6.282224714,FALSE,left,62%,38%,22,1
+13.72719319,2.774018761,Gol,Motor,"1 - Perez de Vargas, G",Extremo,FALSE,FALSE,6.40087721,FALSE,left,62%,38%,23,1
+-13,0,Gol,Barcelona,"33 - Maroz, Ivan",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,24,1
+10.679505,-3.930895263,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,9.632283159,TRUE,right,40%,60%,25,1
+14.44755586,-5.37162059,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.768979389,FALSE,right,69%,31%,26,1
+-14.31153818,-5.316208077,Parada,Barcelona,"33 - Maroz, Ivan",Penetracion,FALSE,FALSE,6.849966566,FALSE,left,75%,25%,27,1
+-13.64658803,0.003393132,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.35341197,FALSE,centre,71%,29%,28,1
+-13.64658803,3.771443988,Gol,Barcelona,"33 - Maroz, Ivan",Penetracion,FALSE,FALSE,6.747243989,FALSE,right,75%,25%,29,1
+-10.82054989,3.161906349,Fuera,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,9.328678206,TRUE,right,40%,60%,30,1
+12.61894294,4.658044189,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,8.028277924,FALSE,left,71%,29%,31,1
+-14.20071316,-5.981158229,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,7.3288817,FALSE,left,71%,29%,32,1
+13.67178068,2.164481123,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.363009896,FALSE,left,71%,29%,33,1
+10.84574254,-4.595845414,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,9.663575349,TRUE,right,40%,60%,34,1
+-12.28333117,-5.85521235,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,8.860860702,FALSE,left,71%,29%,35,1
+15.95000572,-6.3441013,Gol,Motor,"1 - Perez de Vargas, G",Penetracion,FALSE,FALSE,6.31409305,FALSE,right,75%,25%,36,1
+-10.63333097,-2.066322982,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,9.383773789,TRUE,left,42%,58%,37,1
+18.08889488,-7.38299032,Gol,Motor,"1 - Perez de Vargas, G",Extremo,FALSE,FALSE,6.18562025,FALSE,right,62%,38%,38,1
+-10.63333097,0.92812184,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,9.366669034,TRUE,centre,71%,29%,39,1
+13.87222768,1.050344078,Gol,Motor,"1 - Perez de Vargas, G",Contragolpe,FALSE,FALSE,6.127772316,FALSE,centre,77%,23%,40,1
+-12.89444236,5.511455752,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,8.159701379,FALSE,right,69%,31%,41,1
+17.66111705,7.467011555,Parada,Motor,"1 - Perez de Vargas, G",Extremo,FALSE,TRUE,6.409024914,FALSE,left,62%,38%,42,1
+-17.04999844,7.283678198,Gol,Barcelona,"33 - Maroz, Ivan",Extremo,FALSE,FALSE,6.492568266,FALSE,right,62%,38%,43,1
+10.69444951,1.417010791,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,9.305550495,TRUE,centre,39%,61%,44,1
+-15.15555376,6.061455822,Gol,Barcelona,"33 - Maroz, Ivan",Penetracion,FALSE,FALSE,6.653986669,FALSE,right,75%,25%,45,1
+14.79514397,-4.895891476,Gol,Barcelona,"33 - Maroz, Ivan",Extremo,FALSE,FALSE,6.21470878,FALSE,right,62%,38%,46,2
+-13.96395072,2.917272977,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.200205932,FALSE,right,69%,31%,47,2
+11.19333057,-0.185827798,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,8.806669431,FALSE,centre,71%,29%,48,2
+-12.19075028,0.811597451,Gol,Motor,"1 - Perez de Vargas, G",Penetracion,FALSE,FALSE,7.809249723,FALSE,centre,75%,25%,49,2
+11.91369325,0.312884826,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,8.086306751,FALSE,centre,71%,29%,50,2
+-16.06962625,-6.39202935,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.275331784,FALSE,left,71%,29%,51,2
+9.530955153,2.52938538,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,10.51953109,TRUE,left,42%,58%,52,2
+-14.01936323,3.803873199,Parada,Motor,"1 - Perez de Vargas, G",Contragolpe,FALSE,FALSE,6.409044222,FALSE,right,77%,23%,53,2
+-13.57606312,0.36829734,Gol,Motor,"1 - Perez de Vargas, G",Contragolpe,FALSE,FALSE,6.423936877,FALSE,centre,77%,23%,54,2
+13,0,Gol,Barcelona,"33 - Maroz, Ivan",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,55,2
+-12.80028793,3.360573088,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,7.436234673,FALSE,right,69%,31%,56,2
+8.699767446,1.476547617,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,11.30023255,TRUE,centre,39%,61%,57,2
+13.40983112,1.587372645,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,6.590748046,FALSE,centre,77%,23%,58,2
+-17.12246401,-7.334042085,Parada,Motor,"1 - Perez de Vargas, G",Extremo,FALSE,FALSE,6.505094959,FALSE,left,62%,38%,59,2
+-14.96137597,-5.172954045,Gol,Motor,"1 - Perez de Vargas, G",Contragolpe,FALSE,FALSE,6.235248474,FALSE,left,77%,23%,60,2
+9.530955153,1.310310076,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,10.46904485,TRUE,centre,39%,61%,61,2
+-12.41240033,2.917272977,Parada,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,7.718829666,FALSE,right,69%,31%,62,2
+15.29385659,-5.560841642,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.215964977,FALSE,right,69%,31%,63,2
+-13.74230066,1.864435214,Gol,Motor,"1 - Perez de Vargas, G",Penetracion,FALSE,FALSE,6.268302321,FALSE,centre,75%,25%,64,2
+14.18560632,-3.843053713,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.268737879,FALSE,right,69%,31%,65,2
+-16.12503876,6.519086378,Parada,Motor,"1 - Perez de Vargas, G",Extremo,FALSE,FALSE,6.340863717,FALSE,right,62%,38%,66,2
+13.63148118,3.970110741,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.830774411,FALSE,left,71%,29%,67,2
+11.24874308,-1.848203214,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,8.758181496,FALSE,centre,77%,23%,68,2
+-13,0,Gol,Motor,"36 - Møller, Kevin",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,69,2
+13.74230621,0.035822257,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.257693794,FALSE,centre,71%,29%,70,2
+13.46524364,-1.848203214,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,6.544026757,FALSE,centre,77%,23%,71,2
+-14.18560078,-4.23094131,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.42380563,FALSE,left,71%,29%,72,2
+17.56576966,7.184036544,Parada,Barcelona,"33 - Maroz, Ivan",Extremo,FALSE,FALSE,6.183344465,FALSE,left,62%,38%,73,2
+18.84025748,-7.500279627,Gol,Barcelona,"33 - Maroz, Ivan",Extremo,FALSE,FALSE,6.111330323,FALSE,right,62%,38%,74,2
+-13.63147564,-2.457740866,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.440137431,FALSE,left,71%,29%,75,2
+10.69461794,1.310310076,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,9.305382056,TRUE,centre,39%,61%,76,2
+-12.91111296,-5.394604101,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,8.088279212,FALSE,left,71%,29%,77,2
+13.24359358,-0.629127909,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,6.756406418,FALSE,centre,77%,23%,78,2
+-15.73715116,5.854136212,Parada,Motor,"1 - Perez de Vargas, G",Penetracion,FALSE,FALSE,6.093470469,FALSE,right,75%,25%,79,2
+13.57606866,3.083510519,Gol,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,6.616222439,FALSE,left,77%,23%,80,2
+12.41240587,3.471398116,Parada,Barcelona,"33 - Maroz, Ivan",Contragolpe,FALSE,FALSE,7.839514982,FALSE,left,77%,23%,81,2
+12.96653101,2.473972867,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,7.100585127,FALSE,left,71%,29%,82,2
+-10.41754983,1.864435214,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,9.589377676,TRUE,centre,39%,61%,83,2
+-13.85312569,-3.344341088,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.417605301,FALSE,left,71%,29%,84,2
+-13.52065061,1.08866002,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.47934939,FALSE,centre,71%,29%,85,2
+13.46524364,-2.679390922,Fuera,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,6.640331593,FALSE,right,69%,31%,86,2
+-14.51807586,-4.618828907,Gol,Motor,"1 - Perez de Vargas, G",General,FALSE,FALSE,6.307026719,FALSE,left,71%,29%,87,2
+11.96910576,5.133773532,Gol,Barcelona,"33 - Maroz, Ivan",General,FALSE,FALSE,8.814736089,FALSE,left,71%,29%,88,2
+13,0,Gol,Barcelona,"33 - Maroz, Ivan",7m,FALSE,FALSE,7,FALSE,centre,77%,23%,89,2
+-13.52065061,1.587372645,Gol,Motor,"1 - Perez de Vargas, G",Penetracion,FALSE,FALSE,6.479938464,FALSE,centre,75%,25%,90,2
+11.35956811,-5.283779073,Parada,Barcelona,"33 - Maroz, Ivan",General,FALSE,TRUE,9.432605542,TRUE,right,40%,60%,91,2
