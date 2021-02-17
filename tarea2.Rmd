@@ -26,11 +26,14 @@ Cada valor puede establecerse de manera cualitativa sin necesidad de apoyarse en
 
 # Solución
 
-## Definición del marco de referencia
+## Definición del marco de referencia para la probabilidad de parada.
 
 
-Los valores de referencia tomados para este ejercicio, son los datos del play by play del mundial masculino de egipto 2021. 
-En este punto se hace un supuesto de que la probabilidad de parada es el inverso de la probabilidad de gol (xg), sin embargo una parte de este inverso debería considerarse en la probabilidad de fallar un tiro.
+Los valores de referencia tomados para este ejercicio, son los datos del play by play de todos los partidos del mundial masculino de egipto 2021. 
+En este punto se hace un supuesto de que la probabilidad de parada es el inverso de la probabilidad de gol (xg), sin embargo una parte de este inverso debería considerarse en la probabilidad de fallar un tiro ya que goles esperados captura la categoría 'Gol' y la categoría 'No Gol' contiene las paradas de las porterías y los fallos del ataque. 
+
+
+Esta tabla se generó de manera idéntica a la que aparece en la tarea colaborativa 1. Los detalles del cálculo se pueden encontrar **[aquí](https://telaroz.github.io/colaborativa1/)**.
 
 ```{r, echo = FALSE}
 library(magrittr)
@@ -45,51 +48,52 @@ kableExtra::kable(tabla) %>%
 ## Herramienta de marcaje de tiros
 
 
-Se creó una aplicación 100% con código R con el paquete [shiny](https://shiny.rstudio.com/) para marcar la posición junto con el tipo de tiro, para generar automáticamente la probabilidad de parada según esta información. Esta aplicación se puede acceder y usar 
-<https://telaroz.shinyapps.io/colaborativa2/>. Si bien está hecha específicamente para este ejercicio, es posible generalizarla a equipos y jugadores. El código fuente de esta aplicación se encuentra en este [repositorio](https://github.com/telaroz/colaborativa2/) (todo en R) y se puede correr la misma aplicación en una versión local(tutorial básico en el [anexo](https://telaroz.github.io/colaborativa2#Anexo)). Debido a las limitaciones del servidor donde se encuentra alojada la aplicación, es recomendable ejecutar una versión local.  
+Para la realización de este ejercicio se creó una aplicación 100% con código R con el paquete **[shiny](https://shiny.rstudio.com/)** para marcar la posición junto con el tipo de tiro, para generar automáticamente la probabilidad de parada según esta información. Esta aplicación está disponible para su uso libre en <https://telaroz.shinyapps.io/colaborativa2/> y es posible generalizarla a equipos y jugadores de en distintos contextos. El código fuente de esta aplicación está alojado en este **[repositorio](https://github.com/telaroz/colaborativa2/)** (escrito en su totalidad en el lenguaje de programación R) y la misma aplicación puede correr en una versión local. Debido a las limitaciones del servidor donde está alojada la aplicación, se recomienda esta opción. En el **[anexo](https://telaroz.github.io/colaborativa2#anexo))** se explica de manera básica cómo ejecutar esta aplicación en RStudio.  
 
 
 ## Solución primeros 10 tiros. 
 
 Se marcaron los 10 primeros tiros y estos fueron los resultados:
 
-```{r, echo = FALSE}
-knitr::include_graphics("10_tiros.PNG")
 
-knitr::include_graphics("10_tiros_resultados.PNG")
-```
 
-Del marcaje de los tiros, se obtiene automáticamente la tabla con la probabilidad de parada de cada tiro. Se obtienen además estadísticas de los porteros. Ya que estos no suelen rotar mucho en el campo, el trabajo adicional para obtener estas estadísticas es marginal.
+![**Captura de la pestaña 'Marcador de Tiros' de la aplicación**](10_tiros.PNG){width=150%}   
+
+![**Captura de la pestaña 'Resultados' de la aplicación**](10_tiros_resultados.PNG)
+
+
+
+A partir del marcaje de los tiros, la tabla con la probabilidad de parada para cada tiro es generada automáticamente, así como estadísticas sobre las porterías. Debido a esta posición no suele ser cambiada con frecuencia, el trabajo adicional de seleccionar quién se encuentra en el marco para obtener estas estadísticas es marginal.
 
 
 ## Marcaje de todos los tiros del partido. 
 
-Para aprovechar el vídeo, se marcaron todos los tiros. El tiro etiquetado en el video como el número 53, en realidad aparecen 2 tiros, uno que parece parado por el portero. De esta forma, en los siguientes resultados, el tiro 53 y 54 corresponden al número 53 del vídeo. 
+Gracias a que en el video está delimitado cada uno de los tiros de un partido completo, se aprovecha la aplicación creada para marcar todos los tiros de manera fácil y rápida. Aquí es importante resaltar que el tiro etiquetado en el video como el número 53, en realidad contiene información sobre 2 tiros, uno que parece parado por el portero. De esta forma, en los próximos resultados mostrados, el tiro 53 y 54 corresponden al número 53 del vídeo. 
 
 
-Este es el resultado del marcaje para cada tiempo:
+Este es el resultado del marcaje para el primer y segundo tiempo respectivamente:
 
 
-
-
-![**A la derecha la portería del Motor, a la izquierda la portería del Barcelona**](primer_tiempo.PNG)
-
-
-
-![**A la derecha la portería del Barcelona, a la izquierda la portería del Motor**](segundo_tiempo.PNG)
+![**A la derecha la portería del Barcelona, a la izquierda la portería del Motor**](primer_tiempo.PNG)
 
 
 
-Estos son los resultados de probabilidad de parada para cada tiro: 
+![**A la derecha la portería del Motor, a la izquierda la portería del Barcelona**](segundo_tiempo.PNG)
 
+
+A partir de dichos datos se obtuvieron los resultados de probabilidad de parada para cada tiro y el porcentaje de paradas para cada portería. Ambos se detallan a continuación.
+
+
+
+**Probabilidad de parada de los 91 tiros del partido**
 ```{r, echo = FALSE}
 tiros <- data.table::fread('tiros_resultados.csv')
 
 DT::datatable(tiros)
 ```
 
-Además, el porcentaje de paradas para cada portero:
 
+**Porcentaje de paradas para cada portería**
 ```{r, echo = FALSE}
 tabla_porteros <- data.table::fread('resultados_porteros.csv')
 
@@ -99,9 +103,9 @@ kableExtra::kable(tabla_porteros) %>%
 
 
 
-Por último, los datos crudos que surgen de la recopilación de los tiros. Las dos últimas columnas fueron agregadas manualmente. 
+Por último, se muestran los datos crudos que surgieron a partir de la recopilación de los tiros. Las dos últimas columnas fueron agregadas manualmente como información de refencia. 
 
-
+**Datos crudos generados por el marcaje del partido completo**
 ```{r, echo = FALSE}
 tiros_raw <- data.table::fread('colaborativa2_raw.csv')
 
@@ -111,8 +115,49 @@ DT::datatable(tiros_raw)
 
 # Siguientes pasos
 
-Estos datos de eventing que contienen las variables 'Tipo de Tiro', 'Pasivo' además de las coordenadas desde donde se toma el tiro, serían un gran inicio para crear un modelo de goles esperados (xg) más robusto que la simple división de cantidad aciertos/cantidad de tiros por posición de tiro. Es claro que un lanzamiento de extremo con un buen ángulo tendrá mayor probabilidad de éxito que otro con menor ángulo. Un modelo de XG más continuo podría ser generado empezando con simples mapas de calor por posición. Sin embargo, con suficientes datos funcionaría mejor un modelo entrenado con una regresión logística, redes neuronales o con XGboost, que es el estándar en modelos XG en fútbol. 
+Estos datos de eventing que contienen las variables 'Tipo de Tiro', 'Pasivo' además de las coordenadas x/y desde donde se toma el tiro, son un gran inicio para crear un modelo de goles esperados (xg) más robusto que la simple división de cantidad aciertos/cantidad de tiros por posición de tiro. Es claro que un lanzamiento de extremo con un buen ángulo tendrá mayor probabilidad de éxito que otro con menor ángulo. Un modelo de XG más continuo podría ser generado empezando con simples mapas de calor por posición. Sin embargo, con suficientes datos funcionaría mejor un modelo entrenado con una regresión logística, redes neuronales o con XGboost, que es el estándar en modelos XG en fútbol. 
 
 # Anexo
 
-Acá el tutorial
+
+
+## Instalación básica de programas
+
+Para poder ejecutar la aplicación, es necesario instalar R. La descarga se encuentra [**aquí**](https://cloud.r-project.org/)
+
+![Página de descarga de R](tutorial/captura_R.PNG)
+
+
+Además, para facilidad en el desarrollo y ejecución de código R, es importante instalar un entorno de desarrollo integrado. Este se puede instalar desde [**aquí**](https://rstudio.com/products/rstudio/download/)
+
+![Página de descarga de RStudio](tutorial/captura_RStudio.PNG)
+
+## Copia del repositorio de la aplicación
+
+Ya descargados e instalados R y RStudio, se abre RStudio y la página del repositorio <https://github.com/telaroz/colaborativa2/>
+
+Los pasos (mostrados en el gif a continuación) para copiar el repositorio (con sus archivos) en la computadora son los siguientes: 
+
+- Crear un nuevo proyecto en RStudio.
+- Seleccionar Version Control
+- Seleccionar Git
+- Copiar el link de git del repositorio (en este caso https://github.com/telaroz/colaborativa2.git)
+- Pegarlo en RStudio y escoger la carpeta dónde guardaremos el proyecto y todos los archivos
+
+![Copia de un repositorio de Github a RStudio](tutorial/gif_git.gif)
+
+## Ejecución de la aplicación
+
+Ahora se abre el archivo colaborativa2.R y se ejecuta la aplicación con el botón __Run__. 
+
+![](tutorial/shiny_1.png)
+
+La aplicación se desplegará en una venta. Para una mejor experiencia es posible abrirla en el navegador y en un pantalla completa.
+
+![](tutorial/shiny_2.png)
+
+
+Las tres líneas horizontales abren y colapsan el menú de pestañas de la aplicación.
+
+![](tutorial/shiny_3.png)
+

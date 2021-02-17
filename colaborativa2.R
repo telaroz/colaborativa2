@@ -1,9 +1,13 @@
+list.of.packages <- c("shiny", "shinydashboard", "ggplot2", "shinyWidgets", "data.table")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+
 library(shiny)
 library(shinydashboard)
 library(ggplot2)
 library(shinyWidgets)
 library(data.table)
-library(lubridate)
 
 ui <- shinydashboard::dashboardPage(
   shinydashboard::dashboardHeader(title = 'Anotador de tiros'),
