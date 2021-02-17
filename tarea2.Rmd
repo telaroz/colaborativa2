@@ -2,17 +2,31 @@
 title: "Diploma Universitario en Analítica avanzada en balonmano: Tarea Colaborativa 2"
 author: "Valery Zúñiga Kondrashov"
 date: "2021-02-15"
-output: 
-  prettydoc::html_pretty:
-    theme: tactile
-always_allow_html: true
+output:
+  rmdformats::downcute:
+    code_folding: show
+    fig_width: 8
+    fig_height: 4
+    use_bookdown: true
 ---
-##### Nota: el código completo que genera este archivo html se puede encontrar [aquí](https://github.com/telaroz/colaborativa2/blob/master/tarea2.Rmd).
 
 
 
-##### Ejercicio: Establecer un valor de 0% a 100% de probabilidad de parada de cada uno de los 10 primeros lanzamientos que aparecen en el vídeo de lanzamientos de plataforma en el módulo 2 (hasta 0 minutos y 50 segundos en el vídeo, aparece en la esquina superior izquierda el número de lanzamiento).
-##### Cada valor puede establecerse de manera cualitativa sin necesidad de apoyarse en valores de referencia mostrados anteriormente, aunque pueden consultarse tablas de módulo 1 si se desea.
+
+
+**Nota: el código completo que genera este archivo html se puede encontrar [aquí](https://github.com/telaroz/colaborativa2/blob/master/tarea2.Rmd).**
+
+
+
+# Planteamiento del Ejercicio 
+
+Establecer un valor de 0% a 100% de probabilidad de parada de cada uno de los 10 primeros lanzamientos que aparecen en el vídeo de lanzamientos de plataforma en el módulo 2 (hasta 0 minutos y 50 segundos en el vídeo, aparece en la esquina superior izquierda el número de lanzamiento).
+
+Cada valor puede establecerse de manera cualitativa sin necesidad de apoyarse en valores de referencia mostrados anteriormente, aunque pueden consultarse tablas de módulo 1 si se desea.
+
+# Solución
+
+## Definición del marco de referencia
 
 
 Los valores de referencia tomados para este ejercicio, son los datos del play by play del mundial masculino de egipto 2021. 
@@ -27,8 +41,15 @@ kableExtra::kable(tabla) %>%
   kableExtra::kable_styling(full_width = FALSE)
 ```
 
+
+## Herramienta de marcaje de tiros
+
+
 Se creó una aplicación 100% con código R con el paquete [shiny](https://shiny.rstudio.com/) para marcar la posición junto con el tipo de tiro, para generar automáticamente la probabilidad de parada según esta información. Esta aplicación se puede acceder y usar 
-<https://telaroz.shinyapps.io/colaborativa2/>. Si bien está hecha específicamente para este ejercicio, es posible generalizarla a equipos y jugadores. El código fuente de esta aplicación se encuentra en este [repositorio](https://github.com/telaroz/colaborativa2/) (todo en R) y se puede correr la misma aplicación en una versión local. Debido a las limitaciones del servidor donde se encuentra alojada la aplicación, es recomendable ejecutar una versión local.  
+<https://telaroz.shinyapps.io/colaborativa2/>. Si bien está hecha específicamente para este ejercicio, es posible generalizarla a equipos y jugadores. El código fuente de esta aplicación se encuentra en este [repositorio](https://github.com/telaroz/colaborativa2/) (todo en R) y se puede correr la misma aplicación en una versión local(tutorial básico en el [anexo](https://telaroz.github.io/colaborativa2#Anexo)). Debido a las limitaciones del servidor donde se encuentra alojada la aplicación, es recomendable ejecutar una versión local.  
+
+
+## Solución primeros 10 tiros. 
 
 Se marcaron los 10 primeros tiros y estos fueron los resultados:
 
@@ -41,26 +62,22 @@ knitr::include_graphics("10_tiros_resultados.PNG")
 Del marcaje de los tiros, se obtiene automáticamente la tabla con la probabilidad de parada de cada tiro. Se obtienen además estadísticas de los porteros. Ya que estos no suelen rotar mucho en el campo, el trabajo adicional para obtener estas estadísticas es marginal.
 
 
+## Marcaje de todos los tiros del partido. 
 
-Para aprovechar el vídeo, se marcaron todos los tiros. En el tiro 53, parece que hubo un tiro anterior parado por el portero, por lo que el tiro 53 y 54 corresponden al video número 53 del vídeo. 
+Para aprovechar el vídeo, se marcaron todos los tiros. El tiro etiquetado en el video como el número 53, en realidad aparecen 2 tiros, uno que parece parado por el portero. De esta forma, en los siguientes resultados, el tiro 53 y 54 corresponden al número 53 del vídeo. 
 
 
 Este es el resultado del marcaje para cada tiempo:
 
-A la izquierda el portero del Motor
-```{r, echo = FALSE}
-knitr::include_graphics("primer_tiempo.PNG")
 
 
-```
+
+![**A la derecha la portería del Motor, a la izquierda la portería del Barcelona**](primer_tiempo.PNG)
 
 
-A la derecha el portero del Motor
-```{r, echo = FALSE}
-knitr::include_graphics("segundo_tiempo.PNG")
 
+![**A la derecha la portería del Barcelona, a la izquierda la portería del Motor**](segundo_tiempo.PNG)
 
-```
 
 
 Estos son los resultados de probabilidad de parada para cada tiro: 
@@ -92,9 +109,10 @@ DT::datatable(tiros_raw)
 ```
 
 
-
-La coordenada $x$ va desde -20 a 20 (de un lado del campo al otro) y la coordenada $y$ de -10 a 10 (de arriba a abajo del campo). Esta marca el punto en el que el jugador salta para lanzar. Si se quisiera hacer un análisis de cada equipo, es importante tomar en cuenta el cambio de lado del cuál se ataca. 
-
+# Siguientes pasos
 
 Estos datos de eventing que contienen las variables 'Tipo de Tiro', 'Pasivo' además de las coordenadas desde donde se toma el tiro, serían un gran inicio para crear un modelo de goles esperados (xg) más robusto que la simple división de cantidad aciertos/cantidad de tiros por posición de tiro. Es claro que un lanzamiento de extremo con un buen ángulo tendrá mayor probabilidad de éxito que otro con menor ángulo. Un modelo de XG más continuo podría ser generado empezando con simples mapas de calor por posición. Sin embargo, con suficientes datos funcionaría mejor un modelo entrenado con una regresión logística, redes neuronales o con XGboost, que es el estándar en modelos XG en fútbol. 
 
+# Anexo
+
+Acá el tutorial
