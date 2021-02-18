@@ -48,7 +48,7 @@ kableExtra::kable(tabla) %>%
 ## Herramienta de marcaje de tiros
 
 
-Para la realización de este ejercicio se creó una aplicación 100% con código R con el paquete **[shiny](https://shiny.rstudio.com/)** para marcar la posición junto con el tipo de tiro, para generar automáticamente la probabilidad de parada según esta información. Esta aplicación está disponible para su uso libre en <https://telaroz.shinyapps.io/colaborativa2/> y es posible generalizarla a equipos y jugadores de en distintos contextos. El código fuente de esta aplicación está alojado en este **[repositorio](https://github.com/telaroz/colaborativa2/)** (escrito en su totalidad en el lenguaje de programación R) y la misma aplicación puede correr en una versión local. Debido a las limitaciones del servidor donde está alojada la aplicación, se recomienda esta opción. En el **[anexo](https://telaroz.github.io/colaborativa2#anexo)** se explica de manera básica cómo ejecutar esta aplicación en RStudio.  
+Para la realización de este ejercicio se creó una aplicación 100% con código R con el paquete **[shiny](https://shiny.rstudio.com/)** para marcar la posición junto con el tipo de tiro, para generar automáticamente la probabilidad de parada según esta información. Esta aplicación está disponible para su uso libre en <https://telaroz.shinyapps.io/colaborativa2/> y es posible generalizarla a equipos y jugadores en distintos contextos. El código fuente de esta aplicación está alojado en este **[repositorio](https://github.com/telaroz/colaborativa2/)** (escrito en su totalidad en el lenguaje de programación R) y la misma aplicación puede correr en una versión local. Debido a las limitaciones del servidor donde está alojada la aplicación, se recomienda esta opción. En el **[anexo](https://telaroz.github.io/colaborativa2#anexo)** se explica de manera básica cómo ejecutar esta aplicación en RStudio.  
 
 
 ## Solución primeros 10 tiros. 
@@ -132,6 +132,12 @@ Además, para facilidad en el desarrollo y ejecución de código R, es important
 
 ![Página de descarga de RStudio](tutorial/captura_RStudio.PNG)
 
+Por último, para poder descargar el repositorio directamente de github, es necesario instalar Git. Desde [**aquí**](https://git-scm.com/download/) la descarga.
+
+![Página de descarga de RStudio](tutorial/captura_git.PNG)
+
+**Nota: Descargar git y copiar el repositorio directamente en RStudio es altamente recomendable pero opcional. Otra alternativa es descargar los archivos del repositorio y abrir el archivo colaborativa2.Rproj. Después de esto, se puede continuar con los pasos de ejecución de la aplicación detallados en la sección 4.3. **
+
 ## Copia del repositorio de la aplicación
 
 Ya descargados e instalados R y RStudio, se abre RStudio y la página del repositorio <https://github.com/telaroz/colaborativa2/>
@@ -142,7 +148,7 @@ Los pasos (mostrados en el gif a continuación) para copiar el repositorio (con 
 - Seleccionar Version Control
 - Seleccionar Git
 - Copiar el link de git del repositorio (en este caso https://github.com/telaroz/colaborativa2.git)
-- Pegarlo en RStudio y escoger la carpeta dónde guardaremos el proyecto y todos los archivos
+- Pegarlo en RStudio y escoger la carpeta donde guardaremos el proyecto y todos los archivos
 
 ![Copia de un repositorio de Github a RStudio](tutorial/gif_git.gif)
 
@@ -152,7 +158,7 @@ Ahora se abre el archivo colaborativa2.R y se ejecuta la aplicación con el bot�
 
 ![](tutorial/shiny_1.png)
 
-La aplicación se desplegará en una venta. Para una mejor experiencia es posible abrirla en el navegador y en un pantalla completa.
+La aplicación se desplegará en una ventana. Para una mejor experiencia es posible abrirla en el navegador y en pantalla completa.
 
 ![](tutorial/shiny_2.png)
 
