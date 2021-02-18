@@ -134,7 +134,7 @@ Además, para facilidad en el desarrollo y ejecución de código R, es important
 
 Por último, para poder descargar el repositorio directamente de github, es necesario instalar Git. Desde [**aquí**](https://git-scm.com/download/) la descarga.
 
-![Página de descarga de RStudio](tutorial/captura_git.PNG)
+![Página de descarga de Git](tutorial/captura_git.PNG)
 
 **Nota: Descargar git y copiar el repositorio directamente en RStudio es altamente recomendable pero opcional. Otra alternativa es descargar los archivos del repositorio y abrir el archivo colaborativa2.Rproj. Después de esto, se puede continuar con los pasos de ejecución de la aplicación detallados en la sección 4.3. **
 
